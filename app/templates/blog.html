@@ -12,8 +12,7 @@
     {% extends 'base.html' %} {% import 'macros.html' as macro %}
 
     <!-- Styles block -->
-    {% block styles%} {{ super() }}
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet"> {% endblock %} {% block content %}
+    {% block styles%} {{ super() }} {% endblock %} {% block content %}
     <div class="container">
 
         <h3 class="index-header">{{article.title}}</h3>
@@ -27,7 +26,7 @@
         {% if comments %} {% for comment in comments %}
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
             <hr>
-            <p style="color:orange">{{comment.opinion}} </p>
+            <p>{{comment.opinion}} </p>
         </div>
         {% endfor %} {% else %}
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
