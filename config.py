@@ -9,7 +9,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
 
-    SECRET_KEY = "try harder"
+    SECRET_KEY = "ramza123"
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
