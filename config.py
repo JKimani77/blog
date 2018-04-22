@@ -2,26 +2,31 @@ import os
 
 
 class Config:
-    """Main configurations class"""
+    '''
+    Main configurations class
+    '''
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
 
-    SECRET_KEY = "ramza123"
+    SECRET_KEY = "try harder"
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
 
 
-
 class ProdConfig(Config):
-    """Production configuration class that inherits from the main configurations class"""
+    '''
+    Production configuration class that inherits from the main configurations class
+    '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
 
 
 class DevConfig(Config):
-    """Configuration class for development stage of the app"""
+    ''' 
+    Configuration class for development stage of the app
+    '''
     DEBUG = True
 
 
