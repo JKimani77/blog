@@ -1,10 +1,10 @@
-from flask import render_template,request,redirect,url_for,abort,flash
+from flask import render_template, request, redirect, url_for, abort, flash
 from . import main
 from ..models import User, Blog, Comment
-from flask_login import login_required,current_user
+from flask_login import login_required, current_user
 from datetime import datetime, timezone
 from .. import db
-from .forms import BlogForm,CommentForm
+from .forms import BlogForm, CommentForm
 
 
 # Views index
@@ -15,10 +15,12 @@ def index():
     '''
     title = 'Home'
     posts = Blog.get_posts()
-    return render_template('index.html', title = title, posts=posts )
+    return render_template('index.html', title=title, posts=posts)
 
 # view function to render a selected article and its comments
-@main.route('/post/<int:id>', methods=['GET','POST'])
+
+
+@main.route('/post/<int:id>', methods=['GET', 'POST'])
 def single_line(id):
     '''
     View function to return a single article
@@ -27,10 +29,12 @@ def single_line(id):
     title = "article"
     comments = Comment.get_comments(id)
 
-    return render_template('single-blog.html',article = article,title = title, comments=comments)
+    return render_template('single-blog.html', article=article, title=title, comments=comments)
 
 # view route to post a blog
-@main.route('/new/blog', methods=['GET','POST'])
+
+
+@main.route('/new/blog', methods=['GET', 'POST'])
 def new_blog():
     '''
     route to avail form for writing a new blog
@@ -39,13 +43,15 @@ def new_blog():
     if form.validate_on_submit():
         title = form.title.data
         blog = form.blog.data
-        new_blog = Blog(title = title, blog = blog )
+        new_blog = Blog(title=title, blog=blog)
         new_blog.save_blog()
         return redirect(url_for('main.index'))
-    return render_template('new_blog.html',form = form)
+    return render_template('new_blog.html', form=form)
 
 #delete articles
-@main.route('/delete/blog/<int:id>', methods=['GET','POST'])
+
+
+@main.route('/delete/blog/<int:id>', methods=['GET', 'POST'])
 def delete_blog(id):
     """
     view route to delete a selected post
@@ -59,10 +65,11 @@ def delete_blog(id):
     return redirect(url_for('main.index'))
 
 #commenting route
-@main.route('/post/comment/new/<int:id>', methods=['GET','POST'])
+
+
+@main.route('/post/comment/new/<int:id>', methods=['GET', 'POST'])
 @login_required
 def new_comment(id):
-
     '''
     View new comment function that returns a page with a form to create a comment for the specified post
     '''
@@ -75,7 +82,8 @@ def new_comment(id):
 
     if form.validate_on_submit():
         opinion = form.opinion.data
-        new_comment = Comment( opinion=opinion, articles_id=id, user_id=current_user.id)
+        new_comment = Comment(
+            opinion=opinion, articles_id=id, user_id=current_user.id)
         new_comment.save_comment()
 
         return redirect(url_for('main.index'))
@@ -84,7 +92,9 @@ def new_comment(id):
     return render_template('new_comment.html', title=title, comment_form=form)
 
 #delete selected comment
-@main.route('/delete/comment/<int:id>', methods=['GET','POST'])
+
+
+@main.route('/delete/comment/<int:id>', methods=['GET', 'POST'])
 def delete_selected_comment(id):
     """
     view route to delete a selected comment
