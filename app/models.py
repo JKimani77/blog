@@ -72,7 +72,7 @@ class Blog(db.Model):
         Returns:
             posts : all the information in the posts table
         '''
-        posts = Blog.query.order_by(Blog.id.desc()).all()
+        posts = Blog.query.all()
         return posts
 
 

@@ -15,11 +15,10 @@ def index():
     '''
     title = 'Home'
     posts = Blog.get_posts()
+    print(posts)
     return render_template('index.html', title=title, posts=posts)
 
 # view function to render a selected article and its comments
-
-
 @main.route('/post/<int:id>', methods=['GET', 'POST'])
 def single_line(id):
     '''
@@ -29,11 +28,10 @@ def single_line(id):
     title = "article"
     comments = Comment.get_comments(id)
 
-    return render_template('single-blog.html', article=article, title=title, comments=comments)
+    return render_template('blog.html', article=article, title=title, comments=comments)
+
 
 # view route to post a blog
-
-
 @main.route('/new/blog', methods=['GET', 'POST'])
 def new_blog():
     '''
@@ -49,8 +47,6 @@ def new_blog():
     return render_template('new_blog.html', form=form)
 
 #delete articles
-
-
 @main.route('/delete/blog/<int:id>', methods=['GET', 'POST'])
 def delete_blog(id):
     """
@@ -65,8 +61,6 @@ def delete_blog(id):
     return redirect(url_for('main.index'))
 
 #commenting route
-
-
 @main.route('/post/comment/new/<int:id>', methods=['GET', 'POST'])
 @login_required
 def new_comment(id):
@@ -92,8 +86,6 @@ def new_comment(id):
     return render_template('new_comment.html', title=title, comment_form=form)
 
 #delete selected comment
-
-
 @main.route('/delete/comment/<int:id>', methods=['GET', 'POST'])
 def delete_selected_comment(id):
     """
