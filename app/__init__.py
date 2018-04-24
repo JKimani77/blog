@@ -21,6 +21,7 @@ def create_app(config_name):
     login_manager.init_app(app)
     login_manager.session_protection = 'strong'
     login_manager.login_view = 'auth.login'
+    migrate.init_app(app, db)
 
     #Blueprints
     from .main import main as main_blueprint
