@@ -20,6 +20,7 @@ class ProdConfig(Config):
     '''
     Production configuration class that inherits from the main configurations class
     '''
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
 
 
