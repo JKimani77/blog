@@ -7,7 +7,7 @@ class Config:
     '''
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
 
     SECRET_KEY = "ramza123"
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
@@ -21,13 +21,13 @@ class ProdConfig(Config):
     Production configuration class that inherits from the main configurations class
     '''
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
 
 
 class DevConfig(Config):
     ''' 
     Configuration class for development stage of the app
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
     DEBUG = True
 
 
