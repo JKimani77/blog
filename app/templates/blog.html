@@ -28,7 +28,7 @@
         <p>{{article.blog}}</p>
         <div class="col-md-12">
             <h3 class="comment-create">
-                <a href="/post/comment/new/{{article.id}}">Add Comment</a>
+                <a href="/post/comment/new/{{article.id}}">Add a new Comment</a>
             </h3>
         </div>
         {% if comments %} {% for comment in comments %}
@@ -39,7 +39,7 @@
         {% endfor %} {% else %}
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
             <hr>
-            <p style="color:rgb(32, 136, 30)">No comments</p>
+            <p style="color:rgb(32, 136, 30)">N/A Comment</p>
         </div>
         {% endif %}
     </div>

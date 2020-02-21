@@ -7,13 +7,15 @@ class Config:
     '''
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Ivonne1236987@localhost:1234/blog'
 
-    SECRET_KEY = "ramza123"
+    SECRET_KEY = "wasdertyuiop"
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
 
 class ProdConfig(Config):
@@ -27,7 +29,7 @@ class DevConfig(Config):
     ''' 
     Configuration class for development stage of the app
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://ramza:ramza123@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:Ivonne1236987@localhost:1234/blog'
     DEBUG = True
 
 
