@@ -1,7 +1,7 @@
 # News Feed
 
-### By **Ramza Reseni**, 
-#### Published date **22/04/18**
+### By **Joshua Kimani**, 
+#### Published date **2/19/2020**
  ---
 ## Description
 
@@ -9,15 +9,15 @@ A personal blogging website where you can create and share opinions and users ca
 
 ---
 
-#### This [link](https://github.com/ramza007/PersonalBlog/) will take to my live site on Git Hub.
+#### This [link](https://gglobb.herokuapp.com/) will take to my live site on Heroku.
 
 ---
 
 ## Setup/Installation Requirements
 
-* open my [GitHub](https://github.com/ramza007)
-* find my repo *PersonalBlog*
-* $ cd Newsapp
+* open my [GitHub](https://github.com/JKimani77)
+* find my repo *blog*
+* $ cd blog
 * $ python3.6 -m venv virtual (install virtual environment)
 * $ source virtual/bin/activate or virtual/scripts/activate
 * $ python3.6 -m pip install -r requirements.txt (install all dependencies)
@@ -26,11 +26,11 @@ A personal blogging website where you can create and share opinions and users ca
 ---
 
 #### technologies used 
-* python ( **ver 3.6** )
+* python ( **ver 3.7** )
 * Flask framework
 * postgeSQL
 ---
 
-### License under [***MIT***](https://github.com/ramza007/PersonalBlog/blob/master/LICENSE)
+### License under [***MIT***](https://github.com/Jkimani77/PersonalBlog/blob/master/LICENSE)
 
-Copyright (C) 2018 ~ Reseni
+Copyright (C) 2018 ~ Joshua Kimani
